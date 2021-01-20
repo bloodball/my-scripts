@@ -77,7 +77,7 @@ repeat
     if lt == true and dead == false then
         bhandle.CFrame = Character.Head.CFrame + Vector3.new(0, -15, 0)
     elseif ltt == true and dead == false then
-        bhandle.CFrame = ghandle.CFrame * CFrame.new(-1.7, -2, 0)
+        bhandle.CFrame = Character.Torso.CFrame * CFrame.new(-1.7, -2, 0)
         bhandle.Rotation = Character.HumanoidRootPart.Rotation
     end
 until Character.Humanoid.Health == 0
