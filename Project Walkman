@@ -5,7 +5,7 @@ local WalkToPart = false
 local WalkToCordinates = false
 local WalkToPlayer = false
 --
-local Cordinates = {[X] = "", [Y] = "", [Z] = ""}
+local Cordinates = {["X"] = "", ["Y"] = "", ["Z"] = ""}
 local Part = " "
 local Player = ""
 function Notification(a)
@@ -25,7 +25,7 @@ if Part == " " or "" then
     WalkToMousePosition = true
     if Hotkey == "" or " " then
         Hotkey = "q" and Error("No hotkey given, Set to default. {q}")
-        if WalkToCordinates == true and Cordinates[X] or Cordinates[Y] or Cordinates[Z] == "" or " " then
+        if WalkToCordinates == true and Cordinates["X"] or Cordinates["Y"] or Cordinates["Z"] == "" or " " then
             WalkToMouseClick = true and Error("Missing Cordinate Value. Walking to mouse position.")
             if WalkToPlayer == true and Player == "" or " " then
                 WalkToMouseClick = true and Error("No name provided. Walking to mouse position.")
@@ -66,12 +66,13 @@ if Part == " " or "" then
 
                 if WalkToMousePosition == true then
                     print("MousePosition Is True")
-                    local MX = Mouse.Hit.X
-                    local MY = Mouse.Hit.Y
-                    local MZ = Mouse.Hit.Z
+
                     Mouse.KeyDown:Connect(
                         function(a)
                             if a == Hotkey and Mouse.Target then
+                                                    local MX = Mouse.Hit.X
+                    local MY = Mouse.Hit.Y
+                    local MZ = Mouse.Hit.Z
                                 Notification("" .. MX, MY, MZ)
                                 WalkTo(Vector3.new(MX, MY, MZ))
                             end
@@ -84,7 +85,7 @@ if Part == " " or "" then
                             Cordinates[Y],
                             Cordinates[Z]
                         )
-                        WalkTo(Vector3.new(Cordinates[X], Cordinates[Y], Cordinates[Z]))
+                        WalkTo(Vector3.new(Cordinates["X"], Cordinates["Y"], Cordinates["Z"]))
                     end
                 end
                 if WalkToPlayer == true then
