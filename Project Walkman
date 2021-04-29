@@ -21,14 +21,6 @@ function Error(a)
         {Title = "Walking To:", Text = a, Icon = "rbxassetid://0", Duration = 5}
     )
 end
-if Part == " " or "" then
-    WalkToMousePosition = true
-    if Hotkey == "" or " " then
-        Hotkey = "q" and Error("No hotkey given, Set to default. {q}")
-        if WalkToCordinates == true and Cordinates["X"] or Cordinates["Y"] or Cordinates["Z"] == "" or " " then
-            WalkToMouseClick = true and Error("Missing Cordinate Value. Walking to mouse position.")
-            if WalkToPlayer == true and Player == "" or " " then
-                WalkToMouseClick = true and Error("No name provided. Walking to mouse position.")
                 local Mouse = game.Players.LocalPlayer:GetMouse()
                 local function WalkTo(part)
                     Options = {AgentRadius = 2, AgentHeight = 5, AgentCanJump = true}
@@ -69,10 +61,10 @@ if Part == " " or "" then
 
                     Mouse.KeyDown:Connect(
                         function(a)
-                            if a == Hotkey and Mouse.Target then
-                                                    local MX = Mouse.Hit.X
-                    local MY = Mouse.Hit.Y
-                    local MZ = Mouse.Hit.Z
+                            if a == Hotkey  then
+                                                    local MX = Mouse.Hit.x
+                    local MY = Mouse.Hit.y
+                    local MZ = Mouse.Hit.z
                                 Notification("" .. MX, MY, MZ)
                                 WalkTo(Vector3.new(MX, MY, MZ))
                             end
@@ -81,9 +73,9 @@ if Part == " " or "" then
 
                     if WalkToCordinates == true then
                         Notification(
-                            "WalkToCordinates Is True, Walking To:" .. Cordinates[X],
-                            Cordinates[Y],
-                            Cordinates[Z]
+                            "WalkToCordinates Is True, Walking To:" .. Cordinates["X"],
+                            Cordinates["Y"],
+                            Cordinates["Z"]
                         )
                         WalkTo(Vector3.new(Cordinates["X"], Cordinates["Y"], Cordinates["Z"]))
                     end
@@ -94,11 +86,8 @@ if Part == " " or "" then
                         "WalkToPlayer Is True, Walking To: " ..
                             Player ..
                                 " At: " ..
-                                    Target.Position.X .. "," .. Target.Position.Y .. "," .. TargetTarget.Position.Z
+                                    Target.Position.x .. "," .. Target.Position.y .. "," .. TargetTarget.Position.z
                     )
-                    WalkTo(Target.Position.X, Target.Position.Y, Target.Position.Z)
+                    WalkTo(Target.Position.x, Target.Position.y, Target.Position.z)
                 end
-            end
-        end
-    end
-end
+            
