@@ -1,6 +1,3 @@
---No example for this one, It's worth it though if you take the time to use this!
---https://v3rmillion.net/member.php?action=profile&uid=456772
-
 local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/modern"))()
 
 local Remote = game:FindFirstChild("PetLeadService_RE",true)
@@ -13,8 +10,8 @@ local DestroyHighlights = function(a)
         end
     end
 end
-local ExampleTab = Lib:Tab("Auto Lead (bloodball)")
-ExampleTab:Toggle(
+local Tabs = Lib:Tab("Auto Lead (bloodball)")
+Tabs:Toggle(
     "Auto Lead",
     function(state)
         _G.AutoPetLead = state
