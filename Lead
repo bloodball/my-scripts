@@ -1,15 +1,16 @@
+
 local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/modern"))()
 
 local Remote = game:FindFirstChild("PetLeadService_RE",true)
 local Player = game.Players.LocalPlayer
 local Character = Player.Character
-local DestroyHighlights = function(a)
+--[[local DestroyHighlights = function(a)
     for _, v in ipairs(a:GetDescendants()) do
         if v:IsA("Highlight") then
             v:Destroy()
         end
     end
-end
+end]]--
 local Tabs = Lib:Tab("Auto Lead (bloodball)")
 Tabs:Toggle(
     "Auto Lead",
@@ -25,7 +26,7 @@ Tabs:Toggle(
                     DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
                 }
                 for _, v in ipairs(Pets:GetDescendants()) do
-                    if v:IsA("Model") then
+                    if v:IsA("Model") and v.Parent:GetAttribute("OWNER") == Player.Name then
                         table.insert(Models, v)
                         for _, part in ipairs(v:GetDescendants()) do
                             if part:IsA("BasePart") then
