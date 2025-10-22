@@ -1,0 +1,12 @@
+_G.AutoPetLead = true
+local Remote = game:FindFirstDescendant("PetLeadService_RE")
+if game.Players.LocalPlayer.Character:FindFirstChild("Pet Lead") then
+		for _, v in pairs(workspace.PetsPhysical:GetDescendants()) do
+				if v:IsA("Model") then
+						while _G.AutoPetLead == true do
+								task.wait(10.5)
+								Remote:FireServer(v)
+						end
+				end
+		end
+end
