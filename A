@@ -1,0 +1,4 @@
+
+for i,v in pairs(workspace.PetsPhysical:GetDescendants()) do 
+game:GetService("ReplicatedStorage"):WaitForChild("GameEvents"):WaitForChild("PetLeadService_RE"):FireServer(v)
+end
