@@ -1,8 +1,8 @@
 local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/modern"))()
 local Remote = game:FindFirstChild("PetLeadService_RE", true)
 local Player = game.Players.LocalPlayer
-    local petsFolder = workspace:FindFirstChild("PetsPhysical")
-    local highlightProps = {
+local petsFolder = workspace:FindFirstChild("PetsPhysical")
+local highlightProps = {
         FillColor = Color3.fromRGB(255, 255, 0),
         OutlineColor = Color3.fromRGB(0, 0, 0),
         DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
